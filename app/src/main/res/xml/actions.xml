@@ -1,0 +1,86 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<actions>
+
+    <action intentName="actions.intent.OPEN_APP_FEATURE">
+        <fulfillment urlTemplate="https://gactionstest.page.link/open{?featureName}">
+            <parameter-mapping
+                intentParameter="feature"
+                urlParameter="featureName" />
+        </fulfillment>
+        <parameter name="feature">
+            <entity-set-reference entitySetId="FeatureEntitySet"/>
+        </parameter>
+    </action>
+
+    <action intentName="actions.intent.ORDER_MENU_ITEM">
+        <fulfillment urlTemplate="https://gactionstest.page.link/ordermakanan{?menuItemName}">
+            <parameter-mapping
+                intentParameter="menuItem.name"
+                urlParameter="menuItemName" />
+        </fulfillment>
+
+        <parameter name="menuItem.name">
+            <entity-set-reference entitySetId="FoodMenuEntitySet" />
+        </parameter>
+    </action>
+
+    <!-- Food Order-->
+    <entity-set entitySetId="FoodMenuEntitySet">
+        <entity
+            name="MenuItem"
+            identifier="menuItem"/>
+    </entity-set>
+
+    <entity-set entitySetId="FoodQtyEntitySet">
+        <entity
+            name="MenuQty"
+            identifier="menuQty"/>
+    </entity-set>
+
+
+    <!-- Open Apps   //-->
+    <entity-set entitySetId="FeatureEntitySet">
+        <entity
+            name="Profile"
+            identifier="profiles" />
+        <entity
+            name="Settings"
+            identifier="settings" />
+        <entity
+            name="FoodMenu"
+            identifier="foodMenu" />
+    </entity-set>
+
+
+    <action intentName="custom.actions.intent.MENU_ORDER_ITEM_QTY" queryPatterns="@array/ExampleQueries">
+
+<!--        <parameter name="number1" type="https://schema.org/Number" >-->
+<!--            <entity-set-reference  entitySetId="MenuQtyEntitySet"/>-->
+<!--        </parameter>-->
+
+<!--        <parameter name="text1" type="https://schema.org/Text" >-->
+<!--            <entity-set-reference entitySetId="MenuItemsEntitySet"/>-->
+<!--        </parameter>-->
+
+        <parameter name="number1" type="https://schema.org/Number" />
+        <parameter name="text1" type="https://schema.org/Text" />
+
+
+        <fulfillment urlTemplate="https://gactionstest.page.link/ordermakanan{?number_of_items,item_name}">
+            <parameter-mapping intentParameter="number1" urlParameter="number_of_items" />
+            <parameter-mapping intentParameter="text1" urlParameter="item_name" />
+        </fulfillment>
+
+    </action>
+
+    <entity-set entitySetId="MenuQtyEntitySet">
+        <entity identifier="menuQty"
+                name="menuQty"/>
+    </entity-set>
+
+    <entity-set entitySetId="MenuItemsEntitySet">
+        <entity identifier="menuItems"
+            name="menuItems"/>
+    </entity-set>
+
+</actions>

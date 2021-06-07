@@ -1,0 +1,26 @@
+<shortcuts
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <capability
+        android:name="custom.actions.intent.MENU_ORDER_ITEM_QTY"
+        app:queryPatterns="@array/ExampleQueries">
+
+        <intent
+            android:targetPackage="com.example.gactionstest"
+            android:targetClass="com.example.gactionstest.FoodMenuActivity">
+            <url-template
+                android:value="https://gactionstest.page.link/open{?number_of_items,item_name}" />
+            <parameter
+                android:name="number_of_items"
+                android:key="number_of_items"
+                android:mimeType="https://schema.org/Number" />
+            <parameter
+                android:name="item_name"
+                android:key="item_name"
+                android:mimeType="https://schema.org/Text" />
+            <parameter android:name="number_of_items" android:key="number_of_items"/>
+        </intent>
+
+    </capability>
+</shortcuts>

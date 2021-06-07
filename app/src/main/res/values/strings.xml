@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">gactionstest</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+
+
+    <string-array name="ExampleQueries">
+        <item>start making a $text1</item>
+        <item>start making an $text1</item>
+        <item>craft $number1 $text1 items</item>
+        <item>produce $text1 $number1 times</item>
+    </string-array>
+
+</resources>
